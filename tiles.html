@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bathroom Products - Intercom Ceramica</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #2e3a45;
+      animation: fadeInPage 2s;
+    }
+    @keyframes fadeInPage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    nav {
+      background-color: #2e3a45;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #f2a900;
+    }
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #2e3a45;
+      list-style: none;
+      padding: 0.5rem 0;
+      margin: 0;
+      border-radius: 5px;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul li ul li {
+      padding: 0.5rem 1rem;
+    }
+    nav ul li ul li a {
+      color: white;
+      font-size: 0.9rem;
+    }
+    nav ul li ul li a:hover {
+      color: #f2a900;
+    }
+    .product-section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .product-category {
+      margin: 2rem 0;
+    }
+    .product-category h2 {
+      color: #2e3a45;
+    }
+    .product-category .products {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .product {
+      width: 250px;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product h3 {
+      color: #2e3a45;
+      margin: 0.5rem 0;
+    }
+    .product p {
+      color: #555;
+      font-size: 0.9rem;
+    }
+    footer {
+      background-color: #2e3a45;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+
+    }
+    .pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Intercom</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Rreth ne</a></li>
+      <li>
+        <a href="products.html">Produkte</a>
+        <ul>
+          <li><a href="bathroom.html">Banjo</a></li>
+          <li><a href="tiles.html">Pllaka</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <section class="product-section">
+    <h2 class="animate__animated animate__fadeInDown">Pllaka</h2>
+
+    <div class="product-category">
+      <div class="products">
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="b.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="c.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="d.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="e.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="f.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="g.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="h.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="i.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="j.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="k.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="L.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="m.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="n.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="o.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="p.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="q.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="r.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="s.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="t.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="u.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="v.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="w.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="x.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="y.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="z.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="aa.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="bb.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="cc.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="dd.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="ee.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="ff.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="gg.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="hh.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="ii.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="jj.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="kk.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="ll.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="mm.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="nn.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="oo.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="pp.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="qq.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="rr.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="ss.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="tt.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="uu.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="vv.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a1.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a2.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a3.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a4.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a5.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a6.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a7.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a8.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a9.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a10.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a11.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a12.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a15.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a16.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a17.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a18.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a19.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a20.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a21.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a22.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a23.jpg" alt="">
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="a24.jpg" alt="">
+        </div>
+       
+      </div>
+     
+    </div>
+   
+  </section>
+  <script>
+    
+  </script>
+
+  <footer>
+    <p>&copy; 2024 Intercom . All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Intercom Ceramica</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #2e3a45;
+      animation: fadeInPage 2s;
+    }
+    @keyframes fadeInPage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    nav {
+      background-color: #2e3a45;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #f2a900;
+    }
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #2e3a45;
+      list-style: none;
+      padding: 0.5rem 0;
+      margin: 0;
+      border-radius: 5px;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul li ul li {
+      padding: 0.5rem 1rem;
+    }
+    nav ul li ul li a {
+      color: white;
+      font-size: 0.9rem;
+    }
+    nav ul li ul li a:hover {
+      color: #f2a900;
+    }
+    .product-section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .product-category {
+      margin: 2rem 0;
+    }
+    .product-category h2 {
+      color: #2e3a45;
+    }
+    .product-category .products {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .product {
+      width: 250px;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product h3 {
+      color: #2e3a45;
+      margin: 0.5rem 0;
+    }
+    .product p {
+      color: #555;
+      font-size: 0.9rem;
+    }
+    footer {
+      background-color: #2e3a45;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Intercom </h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <a href="products.html">Products</a>
+        <ul>
+          <li><a href="tiles.html">Tiles</a></li>
+          <li><a href="bathroom.html">Bathroom</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="product-section">
+    <h2 class="animate__animated animate__fadeInDown">Our Products</h2>
+
+    <div class="product-category">
+      <h2>Bathroom</h2>
+      <div class="products">
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="https://via.placeholder.com/250" alt="Bathroom Product 1">
+          <h3>Bathroom Set 1</h3>
+          <p>Elegant and modern bathroom set to transform your space.</p>
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="https://via.placeholder.com/250" alt="Bathroom Product 2">
+          <h3>Bathroom Set 2</h3>
+          <p>High-quality materials for a luxurious feel.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-category">
+      <h2>Tiles</h2>
+      <div class="products">
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="https://via.placeholder.com/250" alt="Tile Product 1">
+          <h3>Tile Design 1</h3>
+          <p>Beautiful ceramic tiles to elevate your interiors.</p>
+        </div>
+        <div class="product animate__animated animate__fadeInUp">
+          <img src="https://via.placeholder.com/250" alt="Tile Product 2">
+          <h3>Tile Design 2</h3>
+          <p>Durable and stylish tiles for every space.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Intercom . All rights reserved.</p>
+  </footer>
+</body>
+</html>

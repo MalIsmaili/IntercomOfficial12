@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Intercom Ceramica</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #2e3a45;
+      animation: fadeInPage 2s;
+    }
+    @keyframes fadeInPage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    nav {
+      background-color: #2e3a45;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-family: 'Oswald', sans-serif;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #f2a900;
+    }
+    .contact-section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .contact-section h2 {
+      margin-bottom: 1rem;
+      color: #2e3a45;
+      font-family: 'Playfair Display', serif;
+    }
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    form button {
+      background-color: #f2a900;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: 'Oswald', sans-serif;
+    }
+    form button:hover {
+      background-color: #ffd65c;
+    }
+    .captcha-container {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .captcha-container label {
+      font-weight: bold;
+      display: block;
+    }
+    .captcha-error {
+      color: red;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    footer {
+      background-color: #2e3a45;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+    .lockout-message {
+      text-align: center;
+      font-weight: bold;
+      color: red;
+      margin-top: 1rem;
+    }
+    .timer {
+      font-weight: bold;
+      color: red;
+      font-size: 1.2rem;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("E0xYRuINDKfl7Bshq");
+    })();
+  </script>
+</head>
+<body>
+  <nav>
+    <h1>Intercom</h1>
+    <ul>
+      <li><a href="index.html">Ktheu në faqen kryesore</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <div class="captcha-container">
+        <label id="captchaQuestion"></label>
+        <input type="number" id="captchaAnswer" placeholder="Answer" required>
+        <p id="captchaError" class="captcha-error"></p>
+      </div>
+      <button type="submit" id="submitButton">Send Message</button>
+    </form>
+
+    <div id="lockoutMessage" class="lockout-message" style="display:none;">
+      <p>You have been locked out due to too many failed attempts. Please wait.</p>
+      <p id="timer" class="timer"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Intercom. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const captchaQuestion = document.getElementById('captchaQuestion');
+    const captchaAnswer = document.getElementById('captchaAnswer');
+    const captchaError = document.getElementById('captchaError');
+    const contactForm = document.getElementById('contactForm');
+    const submitButton = document.getElementById('submitButton');
+    const lockoutMessage = document.getElementById('lockoutMessage');
+    const timerDisplay = document.getElementById('timer');
+    const lockoutDuration = 10 * 60 * 1000; // 10 minutes in milliseconds
+
+    let correctAnswer;
+    let attempts = 0;
+    let lockoutTimestamp = localStorage.getItem('lockoutTimestamp') ? parseInt(localStorage.getItem('lockoutTimestamp')) : null;
+    let lockout = false;
+
+    function generateCaptcha() {
+      if (lockout) return;
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      correctAnswer = num1 + num2;
+
+      captchaQuestion.textContent = `Solve: ${num1} + ${num2}`;
+      captchaAnswer.value = '';
+      captchaError.textContent = '';
+      captchaAnswer.style.border = '';
+    }
+
+    function startLockout() {
+      lockout = true;
+      lockoutTimestamp = Date.now();
+      localStorage.setItem('lockoutTimestamp', lockoutTimestamp);
+      captchaError.textContent = 'Too many failed attempts. Try again in 10 minutes.';
+      captchaAnswer.disabled = true;
+      submitButton.disabled = true;
+      lockoutMessage.style.display = 'block';
+      updateTimer();
+    }
+
+    function updateTimer() {
+      if (lockoutTimestamp) {
+        const remainingTime = lockoutTimestamp + lockoutDuration - Date.now();
+        if (remainingTime > 0) {
+          const minutes = Math.floor(remainingTime / 60000);
+          const seconds = Math.floor((remainingTime % 60000) / 1000);
+          timerDisplay.textContent = `Please wait ${minutes}:${seconds < 10 ? '0' : ''}${seconds} until you can try again.`;
+          setTimeout(updateTimer, 1000);
+        } else {
+          lockout = false;
+          attempts = 0;
+          localStorage.removeItem('lockoutTimestamp');
+          captchaError.textContent = '';
+          captchaAnswer.disabled = false;
+          submitButton.disabled = false;
+          generateCaptcha();
+          lockoutMessage.style.display = 'none';
+        }
+      }
+    }
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (lockout) return;
+
+      if (parseInt(captchaAnswer.value, 10) !== correctAnswer) {
+        attempts++;
+        captchaError.textContent = 'Incorrect answer. Please try again.';
+        if (attempts >= 2) {
+          startLockout();
+        } else {
+          generateCaptcha();
+        }
+      } else {
+        emailjs.sendForm('service_mtrhyv8', 'template_jpzs7xr', e.target)
+          .then(() => {
+            alert('Form submitted successfully!');
+            attempts = 0;
+            contactForm.reset();
+            generateCaptcha();
+          })
+          .catch((error) => {
+            alert('Failed to send the message. Please try again later.');
+            console.error(error);
+          });
+      }
+    });
+
+    if (lockoutTimestamp) {
+      lockout = true;
+      updateTimer();
+    } else {
+      generateCaptcha();
+    }
+  </script>
+</body>
+</html>
+
